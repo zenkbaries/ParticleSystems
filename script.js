@@ -6,6 +6,7 @@ canvas.height = window.innerHeight;
 ctx.fillStyle = 'white';
 console.log(ctx);
 
+
 class Particle {
     constructor(effect){
         this.effect = effect;
