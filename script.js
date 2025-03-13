@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 ctx.fillStyle = 'white';
+ctx.fillRect(150, 50, 100, 200);
 console.log(ctx);
 
 
@@ -49,7 +50,7 @@ class Effect {
 
 const effect = new Effect(canvas);
 // effect.handleParticles(ctx)
-console.log(effect);
+// console.log(effect);
 
 function animate() {
     effect.handleParticles(ctx);
