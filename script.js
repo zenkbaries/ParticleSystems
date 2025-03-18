@@ -4,18 +4,19 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 ctx.fillStyle = 'white';
-ctx.fillRect(150, 50, 100, 200);
 console.log(ctx);
 
 
 class Particle {
     constructor(effect){
         this.effect = effect;
-        this.x = Math.random() * this.effect.width;
+        this.radius = 5;
+        this.x = this.radius + Math.random() * this.effect.width;
         this.y = Math.random() * this.effect.height;
-        this.radius = 15;
+        // this.radius = 15;
     }
     draw(context){
+        context.fillStyle = 'hsl(' + this.x * 0.1 + ', 100%, 50%';
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         context.fill();
@@ -32,7 +33,7 @@ class Effect {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.particles = [];
-        this.numberOfParticles = 20;
+        this.numberOfParticles = 200;
         this.createParticles();
     }
     createParticles(){
@@ -49,10 +50,10 @@ class Effect {
 }
 
 const effect = new Effect(canvas);
-// effect.handleParticles(ctx)
-// console.log(effect);
+effect.handleParticles(ctx)
+console.log(effect);
 
-function animate() {
-    effect.handleParticles(ctx);
-    requestAnimationFrame(animate);
-}
+// function animate() {
+//     effect.handleParticles(ctx);
+//     requestAnimationFrame(animate);
+// }
